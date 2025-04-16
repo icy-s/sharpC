@@ -11,6 +11,20 @@ namespace sharpC
 		public static void Main(string[] args)
 		{
 			// 2. osa (Kordused, massivid, listid, klassid)
+			List<string> sonad = FunktsioonideClass_2osa.Sõnad();
+
+			foreach (var item in sonad)
+			{
+				Console.WriteLine(item);
+			}
+
+
+
+
+
+
+
+
 			Isik isik1 = new Isik("Juku", 65, "123456789901", "Tallinn");
 			isik1.PrindiInfo();
 			Isik isik2 = new Isik();
@@ -22,10 +36,10 @@ namespace sharpC
 
 			int i;
 			Console.WriteLine("-----for++Massiv-----");
-			Isik[] isikud = new Isik[10];
 			string[] nimed = new string[10] { "Juku", "Mari", "Kati", "Peeter", "Mati", "Liina", "Katrin", "Andres", "Marko", "Kristi" };
-			string[] aadresid = new string[10] { "Tallinn", "Tartu", "Pärnu", "Narva", "Kohtla-Järve", "Viljandi", "Rakvere", "Paide", "Jõhvi", "Kuressaare" };
-			for (i = 0; i < 10; i++)
+			string[] aadressid = new string[10] { "Tallinn", "Tartu", "Pärnu", "Narva", "Kohtla-Järve", "Viljandi", "Rakvere", "Paide", "Jõhvi", "Kuressaare" };
+            Isik[] isikud = FunktsioonideClass_2osa.Isikud(nimed.Length, nimed, aadressid);
+            for (i = 0; i < 10; i++)
 			{
 				Console.WriteLine(i);
 				//isikud[i] = new Isik();
@@ -35,7 +49,7 @@ namespace sharpC
 					Nimi = nimed[i],
 					Vanus = 50,
 					Isikukood = Console.ReadLine(),
-					Aadress = aadresid[i],
+					Aadress = aadressid[i],
 				};
 			}
 			
@@ -48,11 +62,28 @@ namespace sharpC
 			{
 				isikud[i].PrindiInfo();
 			}
-			Console.WriteLine("-----for-----");
-            for (int j = i; j > 0; j--)
+
+			Console.WriteLine("-----for--List-----");
+			List<Isik> isikud2 = new List<Isik>();
+            for (int j = i-1; j > -1; j--)
             {
                 Console.WriteLine(j);
+				Isik isik = new Isik
+				{
+					Nimi = nimed[j],
+					Vanus = 50,
+					Isikukood = "1111111111",
+					Aadress = aadressid[j],
+				};
+				isikud2.Add(isik);
             }
+			foreach (Isik isik in isikud2)
+			{
+				isik.PrindiInfo();
+			}
+
+
+
             Console.WriteLine("-----while-----");
             while (i > 0)
 			{
