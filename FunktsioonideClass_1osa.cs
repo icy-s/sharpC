@@ -7,7 +7,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace sharpC
 {
-    internal class FunktsioonideClass
+    internal class FunktsioonideClass_1osa
     {
         public static float Kalkulaator(int arv1, int arv2)
         {

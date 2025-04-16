@@ -10,11 +10,69 @@ namespace sharpC
 	{
 		public static void Main(string[] args)
 		{
-			//Console.BackgroundColor = ConsoleColor.Green;
-			Console.ForegroundColor = ConsoleColor.Blue;
+			// 2. osa (Kordused, massivid, listid, klassid)
+			Isik isik1 = new Isik("Juku", 65, "123456789901", "Tallinn");
+			isik1.PrindiInfo();
+			Isik isik2 = new Isik();
+			isik2.Nimi = "Mari";
+			isik2.Aadress = "Tartu";
+			isik2.Isikukood = "987654321";
+			isik2.Sugu = Sugu.Naine;
+			isik2.PrindiInfo();
+
+			int i;
+			Console.WriteLine("-----for++Massiv-----");
+			Isik[] isikud = new Isik[10];
+			string[] nimed = new string[10] { "Juku", "Mari", "Kati", "Peeter", "Mati", "Liina", "Katrin", "Andres", "Marko", "Kristi" };
+			string[] aadresid = new string[10] { "Tallinn", "Tartu", "Pärnu", "Narva", "Kohtla-Järve", "Viljandi", "Rakvere", "Paide", "Jõhvi", "Kuressaare" };
+			for (i = 0; i < 10; i++)
+			{
+				Console.WriteLine(i);
+				//isikud[i] = new Isik();
+				Console.Write("Isikukood: ");
+				isikud[i] = new Isik
+				{
+					Nimi = nimed[i],
+					Vanus = 50,
+					Isikukood = Console.ReadLine(),
+					Aadress = aadresid[i],
+				};
+			}
+			
+			
+			
+			
+			
+	
+			for (i = 0; i < 10; i++)
+			{
+				isikud[i].PrindiInfo();
+			}
+			Console.WriteLine("-----for-----");
+            for (int j = i; j > 0; j--)
+            {
+                Console.WriteLine(j);
+            }
+            Console.WriteLine("-----while-----");
+            while (i > 0)
+			{
+				Console.WriteLine(i);
+				i--;
+			}
+            Console.WriteLine("-----do-----");
+			ConsoleKeyInfo key = new ConsoleKeyInfo();
+            do
+			{
+				Console.WriteLine("Vajuta Backspace");
+				key = Console.ReadKey();
+			}
+			while (key.Key!= ConsoleKey.Backspace);
+
+            // 1. osa (Andmetüübid, if, case, random, alamfunktsioonid
+            /*Console.BackgroundColor = ConsoleColor.Green;
+            Console.ForegroundColor = ConsoleColor.Blue;
 			Console.OutputEncoding = Encoding.UTF8;
 			Console.WriteLine("Tere!");
-			// 1. osa (Andmetüübid, if, case, random, alamfunktsioonid
 			int a = 0;
 			string tekst = "Python";
 			char taht = 'A';
@@ -70,13 +128,13 @@ namespace sharpC
 			int arv2 = int.Parse(Console.ReadLine());
 			//Console.WriteLine("Arvude {0} ja {1} korrutis võrdub {2}", arv1, arv2, arv1 * arv2);
 			arv1 = FunktsioonideClass.Kalkulaator(a, arv2);
-			Console.WriteLine(arv1);*/
+			Console.WriteLine(arv1);
 
 
             //päivää
             Console.WriteLine("Enter weekday number!");
-            tekst = string.Parse(Console.ReadLine());
-            tekst = FunktsioonideClass.Nadalapaevad(a, tekst);
+            //tekst = string.Parse(Console.ReadLine());
+            tekst = FunktsioonideClass_1osa.Nadalapaevad(a, tekst);
             Console.WriteLine(tekst);
 
 
