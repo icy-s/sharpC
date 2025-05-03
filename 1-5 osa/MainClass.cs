@@ -10,20 +10,34 @@ namespace sharpC
 	{
 		public static void Main(string[] args)
 		{
-			// 2. osa (Kordused, massivid, listid, klassid)
-			List<string> sonad = FunktsioonideClass_2osa.Sõnad();
+            // 2. osa (Kordused, massivid, listid, klassid)
+            {
+                Console.WriteLine("Tere tulemast!");
+                string eesnimi = Console.ReadLine();
+                Console.WriteLine("Tere, " + eesnimi);
+                if (eesnimi.ToLower() == "juku")
+                {
+                    Console.WriteLine("Tule minu juurde külla!");
+                }
+                else
+                {
+                    Console.WriteLine("Täna mind kodus pole!");
+                }
+                int arv1 = int.Parse(Console.ReadLine());
+                int arv2 = int.Parse(Console.ReadLine());
+                Console.WriteLine("Arvude {0} ja {1} korrutis võrdub {2}", arv1, arv2, arv1 * arv2);
+                Console.ReadLine();
+            }
+
+
+
+
+            /*List<string> sonad = FunktsioonideClass_2osa.Sõnad();
 
 			foreach (var item in sonad)
 			{
 				Console.WriteLine(item);
 			}
-
-
-
-
-
-
-
 
 			Isik isik1 = new Isik("Juku", 65, "123456789901", "Tallinn");
 			isik1.PrindiInfo();
@@ -52,11 +66,6 @@ namespace sharpC
 					Aadress = aadressid[i],
 				};
 			}
-			
-			
-			
-			
-			
 	
 			for (i = 0; i < 10; i++)
 			{
@@ -82,8 +91,6 @@ namespace sharpC
 				isik.PrindiInfo();
 			}
 
-
-
             Console.WriteLine("-----while-----");
             while (i > 0)
 			{
@@ -97,7 +104,7 @@ namespace sharpC
 				Console.WriteLine("Vajuta Backspace");
 				key = Console.ReadKey();
 			}
-			while (key.Key!= ConsoleKey.Backspace);
+			while (key.Key!= ConsoleKey.Backspace);*/
 
             // 1. osa (Andmetüübid, if, case, random, alamfunktsioonid
             /*Console.BackgroundColor = ConsoleColor.Green;

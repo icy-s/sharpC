@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-public class Failikirjutamine
+/*public class Failikirjutamine
 {
     public Failikurjutamine()
     {
@@ -22,4 +22,4 @@ public class Failikirjutamine
             Console.WriteLine("Mingi viga failiga");
         }
     }
-}
+}*/
