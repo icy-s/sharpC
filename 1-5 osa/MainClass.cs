@@ -12,7 +12,7 @@ namespace sharpC
 		{
             // 2. osa (Kordused, massivid, listid, klassid)
             {
-                Console.WriteLine("Tere tulemast!");
+                Console.WriteLine("Tere tulemast! Sisesta oma nimi: ");
                 string eesnimi = Console.ReadLine();
                 Console.WriteLine("Tere, " + eesnimi);
                 if (eesnimi.ToLower() == "juku")
