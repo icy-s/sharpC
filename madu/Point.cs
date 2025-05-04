@@ -49,7 +49,10 @@ namespace sharpC.madu
                 y = y + offset;
             }
 }
-
+        public bool IsHit(Point p)
+        {
+            return p.x == this.x && p.y == this.y;
+        }
         public void Draw()
         {
             Console.SetCursorPosition(x, y);
@@ -57,7 +60,7 @@ namespace sharpC.madu
         }
         public void Clear()
         {
-            sym = "       ";
+            sym = " ";
             Draw();
         }
     }
