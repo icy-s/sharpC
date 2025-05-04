@@ -21,9 +21,26 @@ namespace sharpC.madu
             rightLine.Draw();
 
             // точки
-            Point p = new Point(4, 5, "+");
+            Point p = new Point(4, 5, "smoking");
             Snake snake = new Snake(p, 4, Direction.RIGHT);
             snake.Draw();
+            snake.Move();
+            Thread.Sleep(300);
+            snake.Move();
+            Thread.Sleep(300);
+            snake.Move();
+            Thread.Sleep(300);
+            snake.Move();
+            Thread.Sleep(300);
+            snake.Move();
+            Thread.Sleep(300);
+            snake.Move();
+            Thread.Sleep(300);
+            snake.Move();
+            Thread.Sleep(300);
+            snake.Move();
+            Thread.Sleep(300);
+            snake.Move();
 
             Console.ReadLine();
         }
