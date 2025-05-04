@@ -57,7 +57,7 @@ namespace sharpC.madu
         }
         public void Clear()
         {
-            sym = " ";
+            sym = "       ";
             Draw();
         }
     }
