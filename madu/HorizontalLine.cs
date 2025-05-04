@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace sharpC.madu
 {
-    internal class HorizontalLine : Figure
+    class HorizontalLine : Figure
     {
         List<Point> pList;
 
