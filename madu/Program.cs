@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Madu;
 
 namespace sharpC.madu
 {
@@ -11,6 +12,10 @@ namespace sharpC.madu
         static void Main(string[] args)
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
+
+            Menu menu = new Menu();
+            menu.ShowOptions();
+            Console.ReadLine();
 
             // стены (вместо рамки)
             Walls walls = new Walls(80, 25);
