@@ -27,7 +27,7 @@ namespace sharpC.madu
             rightLine.Draw();*/
 
             // точки
-            Point p = new Point(4, 5, "X");
+            Point p = new Point(4, 5, "ш");
             Snake snake = new Snake(p, 4, Direction.RIGHT);
             snake.Draw();
 
@@ -59,6 +59,30 @@ namespace sharpC.madu
                     snake.HandleKey(key.Key);
                 }
             }
+            WriteGameOver();
+            Console.ReadLine();
         }
+
+
+        static void WriteGameOver()
+        {
+            int xOffset = 25;
+            int yOffset = 8;
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
+            Console.SetCursorPosition(xOffset, yOffset++);
+            WriteText("============================", xOffset, yOffset++);
+            WriteText("И Г Р А    О К О Н Ч Е Н А", xOffset + 1, yOffset++);
+            yOffset++;
+            WriteText("  А в т о р : e v g e n", xOffset + 2, yOffset++);
+            WriteText("  я учусь в tthk 🚬🚬🚬🚬", xOffset + 1, yOffset++);
+            WriteText("============================", xOffset, yOffset++);
+        }
+
+        static void WriteText(String text, int xOffset, int yOffset)
+        {
+            Console.SetCursorPosition(xOffset, yOffset);
+            Console.WriteLine(text);
+        }
+
     }
 }
