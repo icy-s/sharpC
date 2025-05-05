@@ -17,5 +17,15 @@ namespace sharpC.madu
                 pList.Add(p);
             }
         }
+        public override void Draw()
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+
+            foreach (Point p in pList)
+            {
+                p.Draw();
+            }
+            Console.ForegroundColor = ConsoleColor.Blue;
+        }
     }
 }

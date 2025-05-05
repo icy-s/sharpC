@@ -11,17 +11,20 @@ namespace sharpC.madu
         static void Main(string[] args)
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
-            Console.SetWindowSize(79, 25);
+
+            // стены (вместо рамки)
+            Walls walls = new Walls(80, 25);
+            walls.Draw();
 
             // рамка
-            HorizontalLine upLine = new HorizontalLine(0, 78, 0, "-");
+            /*HorizontalLine upLine = new HorizontalLine(0, 78, 0, "-");
             HorizontalLine downLine = new HorizontalLine(0, 78, 24, "-");
             VerticalLine leftLine = new VerticalLine(0, 24, 0, "/");
             VerticalLine rightLine = new VerticalLine(0, 24, 78, "/");
             upLine.Draw();
             downLine.Draw();
             leftLine.Draw();
-            rightLine.Draw();
+            rightLine.Draw();*/
 
             // точки
             Point p = new Point(4, 5, "X");
