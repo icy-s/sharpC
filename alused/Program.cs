@@ -8,7 +8,7 @@ namespace sharpC.alused
 {
     public class Program
     {
-        static void Main()
+        static void Main1()
         {
             Õpetaja õpetaja = new Õpetaja
             {

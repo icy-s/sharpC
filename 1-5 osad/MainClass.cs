@@ -8,7 +8,7 @@ namespace sharpC.osad
 {
     internal class MainClass
 	{
-		static void Main(string[] args)
+		static void Main1(string[] args)
 		{
             // 2. osa (Kordused, massivid, listid, klassid)
             {

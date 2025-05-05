@@ -10,16 +10,8 @@ namespace sharpC.madu
     {
         static void Main(string[] args)
         {
-
-            int windowWidth = Console.WindowWidth;
-            int windowHeight = Console.WindowHeight;
-
-            int bufferWidth = Math.Max(100, windowWidth); // выбери >= текущего окна
-            int bufferHeight = Math.Max(50, windowHeight);
-
-            Console.SetBufferSize(bufferWidth, bufferHeight);
-
             Console.OutputEncoding = System.Text.Encoding.UTF8;
+            Console.SetWindowSize(79, 25);
 
             // рамка
             HorizontalLine upLine = new HorizontalLine(0, 78, 0, "-");
@@ -32,7 +24,7 @@ namespace sharpC.madu
             rightLine.Draw();
 
             // точки
-            Point p = new Point(4, 5, "*");
+            Point p = new Point(4, 5, "X");
             Snake snake = new Snake(p, 4, Direction.RIGHT);
             snake.Draw();
 

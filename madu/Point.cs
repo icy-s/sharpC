@@ -55,8 +55,12 @@ namespace sharpC.madu
         }
         public void Draw()
         {
-            Console.SetCursorPosition(x, y);
-            Console.Write(sym);
+            if (x >= 0 && x < Console.WindowWidth &&
+                y >= 0 && y < Console.WindowHeight)
+            {
+                Console.SetCursorPosition(x, y);
+                Console.Write(sym);
+            }
         }
         public void Clear()
         {
