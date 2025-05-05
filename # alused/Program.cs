@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace sharpC.alused
 {
-    public class Program
+    class Program
     {
         static void Main1()
         {

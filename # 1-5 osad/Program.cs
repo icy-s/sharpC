@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace sharpC.osad
 {
-    internal class MainClass
+    class Program
 	{
 		static void Main1(string[] args)
 		{
