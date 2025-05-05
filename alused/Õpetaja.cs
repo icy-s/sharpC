@@ -12,7 +12,7 @@ namespace sharpC.alused
         public int TunnidNädalas { get; set; }
 
         //используем абстрактную функцию из абстрактного класса 
-        public override double ArvutaPalk()
+        public double ArvutaPalk()
         {   // плата за месяц (4 недели)
             return Tunnitasu * TunnidNädalas * 4;
         }

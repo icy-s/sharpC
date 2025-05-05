@@ -10,6 +10,15 @@ namespace sharpC.madu
     {
         static void Main(string[] args)
         {
+
+            int windowWidth = Console.WindowWidth;
+            int windowHeight = Console.WindowHeight;
+
+            int bufferWidth = Math.Max(100, windowWidth); // выбери >= текущего окна
+            int bufferHeight = Math.Max(50, windowHeight);
+
+            Console.SetBufferSize(bufferWidth, bufferHeight);
+
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 
             // рамка

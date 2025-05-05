@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace sharpC
+namespace sharpC.osad
 {
     internal class MainClass
 	{
-		public static void Main(string[] args)
+		static void Main(string[] args)
 		{
             // 2. osa (Kordused, massivid, listid, klassid)
             {
