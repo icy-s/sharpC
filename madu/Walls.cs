@@ -24,5 +24,24 @@ namespace sharpC.madu
             wallList.Add(leftLine);
             wallList.Add(rightLine);
         }
+
+        internal bool IsHit(Figure figure)
+        {
+            foreach (var wall in wallList)
+            {
+                if (wall.IsHit(figure))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        public void Draw()
+        {
+            foreach (var wall in wallList)
+            {
+                wall.Draw();
+            }
+        }
     }
 }

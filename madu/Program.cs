@@ -16,7 +16,7 @@ namespace sharpC.madu
             Walls walls = new Walls(80, 25);
             walls.Draw();
 
-            // рамка
+            // старая рамка
             /*HorizontalLine upLine = new HorizontalLine(0, 78, 0, "-");
             HorizontalLine downLine = new HorizontalLine(0, 78, 24, "-");
             VerticalLine leftLine = new VerticalLine(0, 24, 0, "/");
@@ -35,8 +35,12 @@ namespace sharpC.madu
             Point food = foodCreator.CreateFood();
             food.Draw();
 
-            while(true)
+            while (true)
             {
+                if (walls.IsHit(snake) || snake.IsHitTail()) //       || означают "или"
+                {
+                    break;
+                }
                 if(snake.Eat(food))
                 {
                     food = foodCreator.CreateFood();
