@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using NAudio.Wave;
 
 namespace sharpC.madu
 {
@@ -68,6 +69,11 @@ namespace sharpC.madu
             {
                 food.sym = head.sym;
                 pList.Add(food);
+                AudioFileReader audioFileReader = new AudioFileReader("../../../madu/resources/eat.mp3");
+
+                IWavePlayer waveOutDevice = new WaveOutEvent();
+                waveOutDevice.Init(audioFileReader);
+                waveOutDevice.Play();
                 return true;
             }
             else

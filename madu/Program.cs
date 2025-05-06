@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Madu;
+using NAudio.Wave; 
 
 namespace sharpC.madu
 {
@@ -11,6 +12,17 @@ namespace sharpC.madu
     {
         static void Main(string[] args)
         {
+
+            //фоновая композиция
+
+            AudioFileReader audioFileReader = new AudioFileReader("../../../madu/resources/bg.mp3");
+
+            IWavePlayer waveOutDevice = new WaveOutEvent();
+            waveOutDevice.Init(audioFileReader);
+            waveOutDevice.Play();
+
+
+
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 
             Menu menu = new Menu();
@@ -71,6 +83,12 @@ namespace sharpC.madu
 
         static void WriteGameOver()
         {
+            AudioFileReader audioFileReader = new AudioFileReader("../../../madu/resources/dead.mp3");
+
+            IWavePlayer waveOutDevice = new WaveOutEvent();
+            waveOutDevice.Init(audioFileReader);
+            waveOutDevice.Play();
+
             int xOffset = 25;
             int yOffset = 8;
             Console.ForegroundColor = ConsoleColor.DarkBlue;
