@@ -91,13 +91,12 @@ namespace sharpC.madu
 
             int xOffset = 25;
             int yOffset = 8;
-            Console.ForegroundColor = ConsoleColor.DarkBlue;
+            Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.SetCursorPosition(xOffset, yOffset++);
             WriteText("============================", xOffset, yOffset++);
-            WriteText("И Г Р А    О К О Н Ч Е Н А", xOffset + 1, yOffset++);
+            WriteText("G  A  M  E      O  V  E  R", xOffset + 1, yOffset++);
             yOffset++;
-            WriteText("  А в т о р : e v g e n", xOffset + 2, yOffset++);
-            WriteText("  я учусь в tthk 🚬🚬🚬🚬", xOffset + 1, yOffset++);
+            WriteText("made by: icy, Ṣ̶̬͑̌e̷̖̾͊̚ͅa̶̗͙̓g̶̞̹̿̐͐ư̸̬̗͇̥͒̂l̶̢̀͐l̵̗͚̹͑͆̆ͅT̷͈͍̥̲͑̽ó̵͎̆͘o̸̠͗̊n̸̗͊", xOffset + 2, yOffset++);
             WriteText("============================", xOffset, yOffset++);
         }
 
