@@ -15,7 +15,7 @@ namespace sharpC.madu
 
             Menu menu = new Menu();
             menu.ShowOptions();
-            Console.ReadLine();
+            Console.Clear();
 
             // стены (вместо рамки)
             Walls walls = new Walls(80, 25);
