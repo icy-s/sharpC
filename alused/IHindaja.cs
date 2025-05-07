@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace sharpC.alused
 {
-    public interface ITööline
+    public interface IHindaja
     {
-        double ArvutaPalk();
+        void Hinda(string hinne);
     }
-
 }

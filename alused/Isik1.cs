@@ -9,8 +9,8 @@ namespace sharpC
     public abstract class Isik1
     {
         // инкапсуляция - приватное поле, публичное свойство
-        private int sünniaasta;
 
+        private int sünniaasta;
         public string Nimi { get; set; }
         public int Sünniaasta
         {

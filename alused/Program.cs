@@ -26,8 +26,29 @@ namespace sharpC.alused
                 Klass = 9
             };
 
+            Director director = new Director
+            {
+                Nimi = "Ants Antson",
+                Sünniaasta = 1970,
+                Tunnitasu = 30,
+                TunnidNädalas = 20,
+                Lisatasu = 500
+            };
+
+            Üliõpilane tudeng = new Üliõpilane
+            {
+                Nimi = "Kaisa Kask",
+                Sünniaasta = 2002,
+                Kool = "TÜ",
+                Klass = 1,
+                Eriala = "Informaatika"
+            };
+
+
             õpetaja.Kirjelda();
             õpilane.Kirjelda();
+            director.Kirjelda();
+            tudeng.Kirjelda();
         }
     }
 }
