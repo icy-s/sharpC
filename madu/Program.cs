@@ -14,27 +14,43 @@ namespace sharpC.madu
     {
         static void Main(string[] args)
         {
+            // фоновая композиция
 
-            //фоновая композиция
-
-            AudioFileReader audioFileReader = new AudioFileReader("../../../madu/resources/bg.mp3");
+            float defaultVolume = 1.0f;
+            AudioFileReader audioFileReader = new AudioFileReader("../../../madu/resources/bg.mp3")
+            {
+                Volume = defaultVolume
+            };
 
             IWavePlayer waveOutDevice = new WaveOutEvent();
             waveOutDevice.Init(audioFileReader);
             waveOutDevice.Play();
 
-
+            //
 
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 
+            //
+
             Menu menu = new Menu();
-            menu.ShowOptions();
-            List<int> a = menu.ShowOptions();
+
+            List<int> a;
+            while (true)
+            {
+                a = menu.ShowOptions();
+                if (a != null) break;
+            }
+
             bool DM = Menu.GetDrunkMode(a);
             int Sp = Menu.GetSpeed(a);
             string Sy = Menu.GetSymbol(a);
             int So = Menu.GetSoundVolume(a);
             Console.Clear();
+
+            //управление громкостью
+
+            float newVolume = So / 100f;
+            audioFileReader.Volume = newVolume;
 
             // стены (вместо рамки)
             Walls walls = new Walls(80, 25);

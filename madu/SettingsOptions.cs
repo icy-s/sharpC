@@ -8,12 +8,14 @@ namespace Madu
 {
     class SettingsOptions
     {
-        public static string[] SettingsOptionsList = { "DRUNK MODE", "SPEED", "SYMBOL", "SOUND VOLUME" };
+        public static string[] SettingsOptionsList = { "DRUNK MODE", "SPEED", "SYMBOL", "BG THEME VOLUME" };
+        
         public static bool[] DrunkMode = { true, false };
         public static int[] Speed = { 100, 200, 300 };
         public static string[] Symbol = { "*", "#", "@", "&", "-"};
         public static int[] SoundVolume = Enumerable.Range(0, 101).ToArray();
-        public static int[] DEFAULT = { 1, 2, 0, 100 };
+
+        public static int[] DEFAULT = { 1, 2, 0, 70 };
 
     }
 }
