@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Madu;
-using NAudio.Wave; 
+using NAudio.Wave;
+using System.Transactions;
+using System.Security.Cryptography.X509Certificates;
 
 namespace sharpC.madu
 {
@@ -27,6 +29,11 @@ namespace sharpC.madu
 
             Menu menu = new Menu();
             menu.ShowOptions();
+            List<int> a = menu.ShowOptions();
+            bool DM = Menu.GetDrunkMode(a);
+            int Sp = Menu.GetSpeed(a);
+            string Sy = Menu.GetSymbol(a);
+            int So = Menu.GetSoundVolume(a);
             Console.Clear();
 
             // стены (вместо рамки)
@@ -44,7 +51,7 @@ namespace sharpC.madu
             rightLine.Draw();*/
 
             // точки
-            Point p = new Point(4, 5, "ш");
+            Point p = new Point(4, 5, Sy);
             Snake snake = new Snake(p, 4, Direction.RIGHT);
             snake.Draw();
 
