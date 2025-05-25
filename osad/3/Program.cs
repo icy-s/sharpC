@@ -4,10 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace sharpC.osad
+namespace sharpC.osad._3
 {
-    internal class MainClass2
+    class Program
     {
+        static void Main(string[] args)
+        {
+            Program p = new Program();
+            p.Käivita();
+        }
         public void Käivita()
         {
             FunktsioonideClass_3osa f = new FunktsioonideClass_3osa();
@@ -18,7 +23,7 @@ namespace sharpC.osad
             foreach (int ruut in ruudud)
             {
                 int algarv = (int)Math.Sqrt(ruut);
-                Console.WriteLine(algarv + " → " + ruut);
+                Console.WriteLine(algarv + " -> " + ruut);
             }
 
             // 2. Viie arvu analüüs
@@ -32,6 +37,12 @@ namespace sharpC.osad
                     Console.Write("Vale sisend! Palun sisesta arv: ");
                 }
             }
+            var arvvv = f.AnalüüsiArve(arvud);
+            Console.WriteLine("Summa: " + arvvv.Item1 + ", Keskmine: " + arvvv.Item2 + ", Korrutis: " + arvvv.Item3);
+
+
+            // 3. Nimed ja vanused
+            Console.WriteLine("\n3. Nimed ja vanused:");
             List<Inimene> inimesed = new List<Inimene>();
             for (int i = 0; i < 5; i++)
             {
@@ -81,6 +92,6 @@ namespace sharpC.osad
                 Console.Write("Kas mängid uuesti? (jah/ei): ");
                 uuesti = Console.ReadLine().ToLower();
             } while (uuesti == "jah");
+            }
         }
     }
-}

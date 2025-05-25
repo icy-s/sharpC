@@ -16,26 +16,6 @@ namespace sharpC.osad
             return kalkulaator;
         }
 
-        public static string switchKasuta(int a)
-        {
-            string tekst;
-
-            switch (a)
-            {
-                case 1: tekst = "Esmaspäev"; break;
-                case 2: tekst = "Teisipäev"; break;
-                case 3: tekst = "Kolmapäev"; break;
-                case 4: tekst = "Neljapäev"; break;
-                case 5: tekst = "Reede"; break;
-                case 6: tekst = "Laupäev"; break;
-                case 7: tekst = "Pühapäev"; break;
-
-                default:
-                    tekst = "Tundmatu";
-                    break;
-            }
-            return tekst;
-        }
         public static string pinginaabrid(string nimi1, string nimi2)
         {
             string vastus;
