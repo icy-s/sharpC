@@ -5,7 +5,7 @@
     <TargetFramework>net8.0-windows</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-	<StartupObject>sharpC.osad._5.Opilased_hinned</StartupObject>
+	<StartupObject>sharpC.madu.Program</StartupObject>
   </PropertyGroup>
 
   <ItemGroup>

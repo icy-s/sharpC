@@ -61,13 +61,12 @@ namespace Madu
         {
             int selectedIndex = 0;
             ConsoleKey key;
-            int DM = 1;
             int Sp = 2;
             int Sy = 0;
             int So = 100;
 
-            List<int> optionslist = new List<int> { SettingsOptions.DrunkMode.Length, SettingsOptions.Speed.Length, SettingsOptions.Symbol.Length, SettingsOptions.SoundVolume.Length };
-            List<int> param = new List<int> { DM, Sp, Sy, So };
+            List<int> optionslist = new List<int> { SettingsOptions.Speed.Length, SettingsOptions.Symbol.Length, SettingsOptions.SoundVolume.Length };
+            List<int> param = new List<int> {Sp, Sy, So };
 
             do
             {
@@ -87,12 +86,10 @@ namespace Madu
                         Console.WriteLine("   " + SettingsOptions.SettingsOptionsList[i]);
                         Console.SetCursorPosition(50, 10 + (2 * i));
                         if (i == 0)
-                        { Console.WriteLine("< " + SettingsOptions.DrunkMode[DM] + " >"); }
-                        else if (i == 1)
                         { Console.WriteLine("< " + SettingsOptions.Speed[Sp] + " >"); }
-                        else if (i == 2)
+                        else if (i == 1)
                         { Console.WriteLine("< " + SettingsOptions.Symbol[Sy] + " >"); }
-                        else if (i == 3)
+                        else if (i == 2)
                         { Console.WriteLine("< " + SettingsOptions.SoundVolume[So] + " >"); }
 
                         Console.ResetColor();
@@ -104,12 +101,10 @@ namespace Madu
                         Console.WriteLine("   " + SettingsOptions.SettingsOptionsList[i]);
                         Console.SetCursorPosition(50, 10 + (2 * i));
                         if (i == 0)
-                        { Console.WriteLine("< " + SettingsOptions.DrunkMode[DM] + " >"); }
-                        else if (i == 1)
                         { Console.WriteLine("< " + SettingsOptions.Speed[Sp] + " >"); }
-                        else if (i == 2)
+                        else if (i == 1)
                         { Console.WriteLine("< " + SettingsOptions.Symbol[Sy] + " >"); }
-                        else if (i == 3)
+                        else if (i == 2)
                         { Console.WriteLine("< " + SettingsOptions.SoundVolume[So] + " >"); }
                     }
                 }
@@ -129,18 +124,16 @@ namespace Madu
                     case ConsoleKey.LeftArrow:
                         if (param[selectedIndex] > 0)
                         { param[selectedIndex]--; }
-                        DM = param[0];
-                        Sp = param[1];
-                        Sy = param[2];
-                        So = param[3];
+                        Sp = param[0];
+                        Sy = param[1];
+                        So = param[2];
                         break;
                     case ConsoleKey.RightArrow:
                         if (param[selectedIndex] < optionslist[selectedIndex] - 1)
                         { param[selectedIndex]++; }
-                        DM = param[0];
-                        Sp = param[1];
-                        Sy = param[2];
-                        So = param[3];
+                        Sp = param[0];
+                        Sy = param[1];
+                        So = param[2];
                         break;
                     case ConsoleKey.Enter:
                         return param;
