@@ -11,8 +11,13 @@ namespace Madu
         public static void OpenSettings()
         {
             List<int> choises = Keyboard.ChooseOptionSettings("SETTINGS");
+
+            if (choises == null)
+            {
+                return; // пользователь нажал Escape — выход из настроек
+            }
+
+
         }
-
-
     }
 }

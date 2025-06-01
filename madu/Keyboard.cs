@@ -29,6 +29,7 @@ namespace Madu
                         Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine("-> " + options[i]);
                         Console.ResetColor();
+
                     }
                     else
                     {
@@ -109,6 +110,10 @@ namespace Madu
                     }
                 }
 
+                Console.SetCursorPosition(35, 10 + (2 * SettingsOptions.SettingsOptionsList.Length + 2));
+                Console.ForegroundColor = ConsoleColor.DarkGray;
+                Console.WriteLine("press ENTER to play or ESC to exit");
+                Console.ResetColor();
 
                 key = Console.ReadKey(true).Key;
                 switch (key)
@@ -137,6 +142,8 @@ namespace Madu
                         break;
                     case ConsoleKey.Enter:
                         return param;
+                    case ConsoleKey.Escape:
+                        return null;
 
                 }
             }

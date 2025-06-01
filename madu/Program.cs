@@ -16,12 +16,12 @@ namespace sharpC.madu
     {
             static void Main(string[] args)
             {
-                Console.SetWindowSize(100, 30);
-                Console.SetBufferSize(100, 30);
+                Console.SetWindowSize(79, 25);
+                Console.SetBufferSize(79, 25);
                 Console.OutputEncoding = System.Text.Encoding.UTF8;
 
                 float defaultVolume = 1.0f;
-            AudioFileReader audioFileReader = new AudioFileReader("../../../madu/resources/bg.mp3");
+                AudioFileReader audioFileReader = new AudioFileReader("../../../madu/resources/bg.mp3");
                 audioFileReader.Volume = defaultVolume;
 
                 LoopStream loop = new LoopStream(audioFileReader)
