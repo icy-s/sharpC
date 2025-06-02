@@ -16,26 +16,54 @@ namespace Madu
             do
             {
                 Console.Clear();
-                Console.SetCursorPosition(37, 7);
+                Console.SetCursorPosition(2, 0);
                 Console.WriteLine(title);
-                Console.SetCursorPosition(37, 8);
+                Console.SetCursorPosition(2, 1);
                 Console.WriteLine(new string('~', title.Length));
 
                 for (int i = 0; i < options.Length; i++)
                 {
+                    Console.SetCursorPosition(2, 2 + i);
                     if (i == selectedIndex)
                     {
-                        Console.SetCursorPosition(35, 10 + (2 * i));
                         Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine("-> " + options[i]);
                         Console.ResetColor();
-
                     }
                     else
                     {
-                        Console.SetCursorPosition(35, 10 + (2 * i));
                         Console.WriteLine("   " + options[i]);
                     }
+                }
+
+                // ⬅️ Добавляем змею прямо здесь:
+                string[] snakeArt = {
+    "           /^\\/^\\",
+    "         _|__| O|",
+    " \\/    /~    \\_/ \\",
+    "  \\___|_______/  \\",
+    "       \\_____     \\",
+    "             `\\    \\            \\",
+    "              |    |             \\",
+    "             /     /              \\",
+    "            /    /                 \\",
+    "          /    /                   \\",
+    "         /   /                     \\",
+    "       /   /           _----_       \\",
+    "      /   /         _-~      ~-_    |",
+    "     (    (      _-~    _--_    ~-_ _/",
+    "      \\    ~-___-~    _-~    ~-_   ~-",
+    "        ~-_        _-~          ~-_",
+    "           ~--___-~               ~-"
+};
+
+
+
+                int snakeX = Console.WindowWidth - 45;
+                for (int j = 0; j < snakeArt.Length; j++)
+                {
+                    Console.SetCursorPosition(snakeX, 3 + j);
+                    Console.WriteLine(snakeArt[j]);
                 }
 
                 key = Console.ReadKey(true).Key;
@@ -53,8 +81,8 @@ namespace Madu
                 }
 
             } while (true);
-
         }
+
 
         /////////////////////////////////////// 
 

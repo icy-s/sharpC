@@ -13,32 +13,39 @@ namespace Madu
 
         public List<int> ShowOptions()
         {
+
             while (true)
             {
-                int choice = Keyboard.ChooseOption("Main Menu", menu_options);
+                Console.Clear();
+
+                for (int i = 0; i < menu_options.Length; i++)
+                {
+                    Console.SetCursorPosition(2, 2 + i * 2); // 2 символа слева, и 2 строки между пунктами
+                    Console.WriteLine(menu_options[i]);
+                }
+
+                // Выбор пользователя
+                int choice = Keyboard.ChooseOption("käärme", menu_options);
+
                 switch (choice)
                 {
                     case 0:
                         return SettingsOptions.DEFAULT.ToList();
-
                     case 1:
                         return Keyboard.ChooseOptionSettings("SETTINGS (DEFAULT VALUES)");
-
                     case 2:
                         Score();
                         break;
-
                     case 3:
                         Environment.Exit(0);
                         break;
-
                     default:
                         Console.WriteLine("error");
                         break;
-
                 }
             }
         }
+
 
         public static int GetSpeed(List<int> choises)
         {
