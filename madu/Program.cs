@@ -16,6 +16,7 @@ namespace sharpC.madu
     {
             static void Main(string[] args)
             {
+                List<Figure> extraWalls = new List<Figure>();
                 Console.SetWindowSize(79, 25);
                 Console.SetBufferSize(79, 25);
                 Console.OutputEncoding = System.Text.Encoding.UTF8;
@@ -127,14 +128,38 @@ namespace sharpC.madu
                     food.Draw();
 
                     while (true)
-                    {
-                        if (walls.IsHit(snake) || snake.IsHitTail())
-                            break;
 
-                        if (snake.Eat(food))
+                    {
+                    if (walls.IsHit(snake) || snake.IsHitTail())
+                        break;
+
+                    bool hitExtraWall = false;
+                    foreach (var wall in extraWalls)
+                    {
+                        if (wall.IsHit(snake))
+                        {
+                            hitExtraWall = true;
+                            break;
+                        }
+                    }
+                    if (hitExtraWall)
+                        break;
+
+                    if (snake.Eat(food))
                         {
                             score++;
-                            food = foodCreator.CreateFood();
+                            if (score % 3 == 0)
+                            {
+                                // obstacle spawn
+                                Random rnd = new Random();
+                                int x = rnd.Next(2, 74); // map 
+                                int y = rnd.Next(2, 23); // map
+
+                                HorizontalLine newWall = new HorizontalLine(x, x + 4, y, "#");
+                                extraWalls.Add(newWall);
+                                newWall.Draw();
+                            }
+                        food = foodCreator.CreateFood();
                             food.Draw();
                             Console.SetCursorPosition(0, 24);
                             Console.Write($"Player: {Name} | Score: {score}");
