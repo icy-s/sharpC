@@ -9,7 +9,7 @@ namespace Madu
 {
     class Menu
     {
-        private static string[] menu_options = { "START", "SETTINGS", "LEADERBOARD", "EXIT" };
+        private static string[] menu_options = { "START (DEFAULT SETTINGS)", "SETTINGS", "LEADERBOARD", "EXIT" };
 
         public List<int> ShowOptions()
         {
@@ -22,7 +22,7 @@ namespace Madu
                         return SettingsOptions.DEFAULT.ToList();
 
                     case 1:
-                        return Keyboard.ChooseOptionSettings("SETTINGS");
+                        return Keyboard.ChooseOptionSettings("SETTINGS (DEFAULT VALUES)");
 
                     case 2:
                         Score();
@@ -57,7 +57,7 @@ namespace Madu
         public void Score()
         {
             Console.Clear();
-            string path = "C:\\Users\\xicey\\source\\repos\\icy-s\\sharpC\\madu\\scores.txt";
+            string path = "C:\\Users\\iData.ICEYAY\\source\\repos\\icy-s\\sharpC\\madu\\scores.txt";
 
             if (File.Exists(path))
             {

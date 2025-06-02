@@ -62,12 +62,13 @@ namespace Madu
         {
             int selectedIndex = 0;
             ConsoleKey key;
-            int Sp = 2;
+            int Sp = 0;
             int Sy = 0;
-            int So = 100;
+            int So = 50;
+            int Bg = 0;
 
-            List<int> optionslist = new List<int> { SettingsOptions.Speed.Length, SettingsOptions.Symbol.Length, SettingsOptions.SoundVolume.Length };
-            List<int> param = new List<int> {Sp, Sy, So };
+            List<int> optionslist = new List<int> { SettingsOptions.Speed.Length, SettingsOptions.Symbol.Length, SettingsOptions.SoundVolume.Length, SettingsOptions.BgChoice.Length};
+            List<int> param = new List<int> {Sp, Sy, So, Bg };
 
             do
             {
@@ -92,6 +93,8 @@ namespace Madu
                         { Console.WriteLine("< " + SettingsOptions.Symbol[Sy] + " >"); }
                         else if (i == 2)
                         { Console.WriteLine("< " + SettingsOptions.SoundVolume[So] + " >"); }
+                        else if (i == 3)
+                        { Console.WriteLine("< " + SettingsOptions.BgChoice[Bg] + " >"); }
 
                         Console.ResetColor();
 
@@ -107,12 +110,20 @@ namespace Madu
                         { Console.WriteLine("< " + SettingsOptions.Symbol[Sy] + " >"); }
                         else if (i == 2)
                         { Console.WriteLine("< " + SettingsOptions.SoundVolume[So] + " >"); }
+                        else if (i == 3)
+                        { Console.WriteLine("< " + SettingsOptions.BgChoice[Bg] + " >"); }
                     }
                 }
 
-                Console.SetCursorPosition(35, 10 + (2 * SettingsOptions.SettingsOptionsList.Length + 2));
+                int baseLeft = 35;
+                int baseTop = 10 + (2 * SettingsOptions.SettingsOptionsList.Length + 2);
+
+                Console.SetCursorPosition(baseLeft, baseTop);
                 Console.ForegroundColor = ConsoleColor.DarkGray;
+                Console.WriteLine("less speed value = faster snake (100 > 300)");
+                Console.SetCursorPosition(baseLeft, baseTop + 1);
                 Console.WriteLine("press ENTER to play or ESC to exit");
+
                 Console.ResetColor();
 
                 key = Console.ReadKey(true).Key;
@@ -132,6 +143,7 @@ namespace Madu
                         Sp = param[0];
                         Sy = param[1];
                         So = param[2];
+                        Bg = param[3];
                         break;
                     case ConsoleKey.RightArrow:
                         if (param[selectedIndex] < optionslist[selectedIndex] - 1)
@@ -139,6 +151,7 @@ namespace Madu
                         Sp = param[0];
                         Sy = param[1];
                         So = param[2];
+                        Bg = param[3];
                         break;
                     case ConsoleKey.Enter:
                         return param;

@@ -20,20 +20,28 @@ namespace sharpC.madu
                 Console.SetBufferSize(79, 25);
                 Console.OutputEncoding = System.Text.Encoding.UTF8;
 
-                float defaultVolume = 1.0f;
-                AudioFileReader audioFileReader = new AudioFileReader("../../../madu/resources/landslide.mp3");
-                audioFileReader.Volume = defaultVolume;
+                int defaultVolumeInt = SettingsOptions.DEFAULT[2]; // третий элемент списка
+                float defaultVolume = defaultVolumeInt / 100f;
 
+                float currentVolume = defaultVolume;
+                int currentTrackIndex = 0; // индекс текущего трека — изначально 0
+                string selectedTrack = SettingsOptions.BgChoice[0]; // первая композиция по умолчанию
+                string musicPath = $"../../../madu/resources/{selectedTrack}.mp3";
+
+                // Инициализация проигрывателя
+                AudioFileReader audioFileReader = new AudioFileReader(musicPath)
+                {
+                    Volume = defaultVolume
+                };
                 LoopStream loop = new LoopStream(audioFileReader)
                 {
                     EnableLooping = true,
                 };
-
                 IWavePlayer waveOutDevice = new WaveOutEvent();
                 waveOutDevice.Init(loop);
                 waveOutDevice.Play();
 
-                while (true)
+            while (true)
                 {
                     Console.Clear();
 
@@ -48,7 +56,46 @@ namespace sharpC.madu
 
                     int Sp = Menu.GetSpeed(a);
                     string Sy = Menu.GetSymbol(a);
-                    int So = Menu.GetSoundVolume(a);
+
+                    // Проверяем, есть ли громкость в меню (индекс 2)
+                    if (a.Count > 2)
+                    {
+                        currentVolume = a[2] / 100f; // обновляем текущую громкость только если пользователь изменил
+                    }
+
+                    // Обновляем индекс трека, если в меню есть значение
+                    if (a.Count > 3)
+                    {
+                        currentTrackIndex = a[3];
+                    }
+
+                    selectedTrack = SettingsOptions.BgChoice[currentTrackIndex];
+                    musicPath = $"../../../madu/resources/{selectedTrack}.mp3";
+
+                    // Остановить и освободить текущий плеер и аудиофайл, если они есть
+                    if (waveOutDevice != null)
+                    {
+                        waveOutDevice.Stop();
+                        waveOutDevice.Dispose();
+                        waveOutDevice = null;
+                    }
+                    if (audioFileReader != null)
+                    {
+                        audioFileReader.Dispose();
+                        audioFileReader = null;
+                    }
+
+                    audioFileReader = new AudioFileReader(musicPath);
+                    audioFileReader.Volume = currentVolume;
+
+                    loop = new LoopStream(audioFileReader)
+                    {
+                        EnableLooping = true
+                    };
+
+                    waveOutDevice = new WaveOutEvent();
+                    waveOutDevice.Init(loop);
+                    waveOutDevice.Play();
 
                     Console.Clear();
                     string Name = "";
@@ -67,9 +114,6 @@ namespace sharpC.madu
                     }
 
                     int score = 0;
-
-                    float newVolume = So / 100f;
-                    audioFileReader.Volume = newVolume;
 
                     Walls walls = new Walls(80, 25);
                     walls.Draw();
@@ -92,7 +136,7 @@ namespace sharpC.madu
                             score++;
                             food = foodCreator.CreateFood();
                             food.Draw();
-                            Console.SetCursorPosition(0, 26);
+                            Console.SetCursorPosition(0, 24);
                             Console.Write($"Player: {Name} | Score: {score}");
                         }
                         else
@@ -123,7 +167,7 @@ namespace sharpC.madu
                 waveOutDevice.Init(audioFileReader);
                 waveOutDevice.Play();
 
-                string path = "C:\\Users\\xicey\\source\\repos\\icy-s\\sharpC\\madu\\scores.txt";
+                string path = "C:\\Users\\iData.ICEYAY\\source\\repos\\icy-s\\sharpC\\madu\\scores.txt";
                 using (StreamWriter writer = new StreamWriter(path, true))
                 {
                     writer.WriteLine(name + " - " + score);
