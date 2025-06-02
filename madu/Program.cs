@@ -21,7 +21,7 @@ namespace sharpC.madu
                 Console.OutputEncoding = System.Text.Encoding.UTF8;
 
                 float defaultVolume = 1.0f;
-                AudioFileReader audioFileReader = new AudioFileReader("../../../madu/resources/bg.mp3");
+                AudioFileReader audioFileReader = new AudioFileReader("../../../madu/resources/landslide.mp3");
                 audioFileReader.Volume = defaultVolume;
 
                 LoopStream loop = new LoopStream(audioFileReader)
