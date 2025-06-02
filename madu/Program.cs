@@ -192,7 +192,7 @@ namespace sharpC.madu
                 waveOutDevice.Init(audioFileReader);
                 waveOutDevice.Play();
 
-                string path = "C:\\Users\\iData.ICEYAY\\source\\repos\\icy-s\\sharpC\\madu\\scores.txt";
+                string path = "../../../madu/scores.txt";
                 using (StreamWriter writer = new StreamWriter(path, true))
                 {
                     writer.WriteLine(name + " - " + score);

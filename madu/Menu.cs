@@ -57,7 +57,7 @@ namespace Madu
         public void Score()
         {
             Console.Clear();
-            string path = "C:\\Users\\iData.ICEYAY\\source\\repos\\icy-s\\sharpC\\madu\\scores.txt";
+            string path = "../../../madu/scores.txt";
 
             if (File.Exists(path))
             {
